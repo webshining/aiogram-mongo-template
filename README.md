@@ -4,8 +4,8 @@
 * Aiogram
 * Redis
 * Pymongo
-* Sqlite
-* PostgresQL
+* MongoDB
+* Poetry
 * Docker and docker compose
 
 ## Navigate
@@ -13,7 +13,11 @@
     * [Init project](#init-project)
     * [Configure environment variables](#configure-environment-variables)
         * [Bot config](#bot-config)
-    * [Application start (local)](#application-start)
+        * [Redis config](#redis-config)
+        * [Database config](#database-config)
+    * [Application start (local)](#local-start)
+* [Docker](#docker)
+    * [Application start (docker)](#docker-start)
 ## Getting started
 ### Init project
 ```bash
@@ -32,6 +36,7 @@ $ cp .env.ren .env
 
 `ADMINS` - admin ids (not required)
 
+### Redis config
 > If you are not using redis, by default used MemoryStorage
 
 `RD_DB` = redis database (number)
@@ -41,7 +46,11 @@ $ cp .env.ren .env
 `RD_PORT` = redis port
 
 `RD_PASS` = redis password (not required)
-### Application start
+### Database config
+`MONGODB_URL` - connection url to your mongodb server
+> MongoDB URL format`mongodb://[username:password@]host1[:port1][,...hostN[:portN]][/[defaultauthdb][?options]]`
+
+### Application start (local)
 ```bash
 $ python app.py 
 ```
