@@ -15,10 +15,14 @@
         * [Bot config](#bot-config)
         * [Redis config](#redis-config)
         * [Database config](#database-config)
-    * [Application start (local)](#local-start)
+    * [Application start (local)](#application-start-local)
 * [Docker](#docker)
-    * [Application start (docker)](#docker-start)
+    * [Application start (docker)](#application-start-docker)
+    * [View app logs](#view-app-logs)
+    * [Rebuild app](#rebuild-app)
+    * [Manage mongodb](#manage-mongodb)
 ## Getting started
+---
 ### Init project
 ```bash
 $ git clone https://github.com/webshining/aiogram-mongo-template project_name
@@ -47,10 +51,42 @@ $ cp .env.ren .env
 
 `RD_PASS` = redis password (not required)
 ### Database config
+> MongoDB URL format<br>
+`mongodb://[username:password@]host1[:port1][,...hostN[:portN]][/[defaultauthdb][?options]]`
+
 `MONGODB_URL` - connection url to your mongodb server
-> MongoDB URL format`mongodb://[username:password@]host1[:port1][,...hostN[:portN]][/[defaultauthdb][?options]]`
 
 ### Application start (local)
 ```bash
 $ python app.py 
+# If you have make you can enter
+$ make run
+```
+## Docker
+---
+### Application start (docker)
+> Run only one service:<br>
+`$ docker-compose up -d service-name`
+```bash
+$ docker-compose up -d
+# If you have make you can enter
+$ make compose
+```
+### View app logs
+```bash
+$ docker-compose logs -f app 
+# If you have make you can enter
+$ make logs
+```
+### Rebuild app
+```bash
+$ docker-compose up -d --build --no-deps --force-recreate
+# If you have make you can enter
+$ make rebuild
+```
+### Manage mongodb
+```bash
+$ docker-compose exec mongo mongosh
+# If you have make you can enter
+$ make mongosh
 ```
