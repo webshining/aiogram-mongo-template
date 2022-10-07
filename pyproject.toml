@@ -2,7 +2,7 @@
 name = "aiogram-bot"
 version = "0.1.0"
 description = ""
-authors = ["WebShining <artemilienkono@gmail.com>"]
+authors = ["WebShining <webshinings@gmail.com>"]
 readme = "README.md"
 packages = [{include = "aiogram_mongo_template"}]
 
