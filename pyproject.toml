@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "aiogram-mongo-template"
+name = "aiogram-bot"
 version = "0.1.0"
 description = ""
 authors = ["WebShining <artemilienkono@gmail.com>"]
