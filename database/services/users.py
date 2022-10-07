@@ -11,20 +11,25 @@ def get_user(id: int):
     return User(**user) if user else None
 
 
-def create_user(id: int, name: str, username: str):
-    user = users_collection.insert_one({'_id': id, 'name': name, 'username': username})
+def create_user(id: int, name: str, username: str, language: str):
+    user = users_collection.insert_one({'_id': id, 'name': name, 'username': username, 'language': language})
     return get_user(user.inserted_id)
 
 
 def update_user(id: int, name: str, username: str):
     user = users_collection.find_one_and_update({'_id': id}, {'$set': {'name': name, 'username': username}}, return_document=True)
-    return user
+    return User(**user)
 
 
-def get_or_create_user(id: int, name: str, username: str):
+def get_or_create_user(id: int, name: str, username: str, language: str):
     user = get_user(id)
     if user:
         user = update_user(id, name, username)
     else:
-        user = create_user(id, name, username)
+        user = create_user(id, name, username, language)
     return user
+
+
+def edit_user_language(id: int, language: str):
+    user = users_collection.find_one_and_update({'_id': id}, {'$set': {'language': language}}, return_document=True)
+    return User(**user)
