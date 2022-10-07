@@ -1,2 +1,4 @@
-from . import start
-from . import lang
+from .start import dp
+from .lang import dp
+
+__all__ = ['dp']

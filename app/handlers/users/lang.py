@@ -3,6 +3,7 @@ from aiogram.dispatcher.filters import Command
 
 from loader import dp, _, i18n
 from app.keyboards import get_lang_markup
+from app.commands import set_user_commands
 from database.services import edit_user_language
 
 
@@ -16,4 +17,5 @@ async def lang_callback_query(call: CallbackQuery):
     await call.answer()
     edit_user_language(call.from_user.id, call.data[5:])
     i18n.set_user_locale(call.data[5:])
+    await set_user_commands(call.from_user.id, call.data[5:])
     await call.message.edit_text(_('Language changed'), reply_markup=None)

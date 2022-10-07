@@ -11,11 +11,16 @@ async def on_startup(dispatcher):
 
 
 async def on_shutdown(dispatcher):
+    from database.services import get_users
+    await bot.delete_my_commands()
+    [await bot.delete_my_commands(scope=types.BotCommandScopeChat(user.id)) for user in get_users()]
+    [await bot.delete_my_commands(language_code=lang) for lang in i18n.available_locales]
+    await dp.storage.close()
+    await dp.storage.wait_closed()
     logger.error('Bot shutting down!')
-    for lang in i18n.available_locales:
-        await bot.delete_my_commands(scope=types.BotCommandScopeDefault(), language_code=lang)
 
 
 if __name__ == '__main__':
-    import app.filters, app.middlewares, app.handlers
-    executor.start_polling(dp, on_startup=on_startup, on_shutdown=on_shutdown)
+    import app.filters, app.handlers, app.middlewares
+    app.middlewares.setup_middlewares(dp)
+    executor.start_polling(app.handlers.dp, on_startup=on_startup, on_shutdown=on_shutdown)

@@ -1,7 +1,6 @@
 from aiogram.types import Message, CallbackQuery, InlineQuery
 from aiogram.dispatcher.middlewares import BaseMiddleware
 from database import get_or_create_user
-from utils import logger
 
 
 class UserMiddleware(BaseMiddleware):

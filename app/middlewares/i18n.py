@@ -1,14 +1,14 @@
-from aiogram.types import Message
+from aiogram.types import User
 from aiogram.contrib.middlewares.i18n import I18nMiddleware
 from data.config import I18N_DOMAIN, I18N_PATH
+from database.services import get_user
 
 
-class ACLMiddleware(I18nMiddleware):
-    async def get_user_locale(self, action: str, args: list[Message, dict[str]]):
-        *_, data = args
-        user = data['user']
-
-        return user.language
+class ACLMiddleware(I18nMiddleware):        
+    async def get_user_locale(self, action: str, args: any):
+        user = User.get_current()
+        
+        return get_user(user.id).language or user.locale
 
     def set_user_locale(self, locale: str):
         self.ctx_locale.set(locale)

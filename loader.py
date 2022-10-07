@@ -16,6 +16,5 @@ dp = Dispatcher(bot, storage=storage)
 client = MongoClient(MONGODB_URL)
 db = client['bot']
 
-from app.middlewares import i18n
-
+from app.middlewares.i18n import i18n
 _ = i18n.gettext

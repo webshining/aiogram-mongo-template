@@ -6,7 +6,7 @@ def get_lang_markup():
     
     buttons = [
         InlineKeyboardButton(text='🇺🇸 English', callback_data='lang_en'),
-        InlineKeyboardButton(text='🇺🇦 Українська', callback_data='lang_ua'),
+        InlineKeyboardButton(text='🇺🇦 Українська', callback_data='lang_uk'),
         InlineKeyboardButton(text='🇷🇺 Русский', callback_data='lang_ru')
     ]
     markup.add(*buttons)
