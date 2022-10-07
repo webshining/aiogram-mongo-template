@@ -14,4 +14,4 @@ else:
 dp = Dispatcher(bot, storage=storage)
 
 client = MongoClient(MONGODB_URL)
-db = client['database']
+db = client['bot']
