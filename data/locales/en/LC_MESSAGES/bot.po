@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2022-10-07 13:29+0300\n"
+"POT-Creation-Date: 2022-10-07 13:42+0300\n"
 "PO-Revision-Date: 2022-10-07 13:29+0300\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en\n"
@@ -18,11 +18,19 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.9.1\n"
 
-#: app/handlers/users/lang.py:10
+#: app/commands/default.py:8
+msgid "start bot"
+msgstr ""
+
+#: app/commands/default.py:9
+msgid "change language"
+msgstr ""
+
+#: app/handlers/users/lang.py:11
 msgid "Select language:"
 msgstr ""
 
-#: app/handlers/users/lang.py:16
+#: app/handlers/users/lang.py:18
 msgid "Language changed"
 msgstr ""
 
