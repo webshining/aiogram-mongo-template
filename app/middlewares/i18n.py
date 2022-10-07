@@ -3,12 +3,11 @@ from aiogram.contrib.middlewares.i18n import I18nMiddleware
 from data.config import I18N_DOMAIN, I18N_PATH
 
 
-class Localization(I18nMiddleware):
-    async def get_user_locale(self, action: str, args: list[Message, dict[str]]):        
+class ACLMiddleware(I18nMiddleware):
+    async def get_user_locale(self, action: str, args: list[Message, dict[str]]):
         *_, data = args
-        
-        user = data['user'] 
-        
+        user = data['user']
+
         return user.language
 
     def set_user_locale(self, locale: str):
@@ -21,4 +20,4 @@ class Localization(I18nMiddleware):
             return True
 
 
-i18n = Localization(I18N_DOMAIN, I18N_PATH)
+i18n = ACLMiddleware(I18N_DOMAIN, I18N_PATH)
