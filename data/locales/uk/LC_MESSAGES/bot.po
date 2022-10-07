@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2022-10-07 13:42+0300\n"
-"PO-Revision-Date: 2022-10-07 13:29+0300\n"
+"POT-Creation-Date: 2022-10-07 14:02+0300\n"
+"PO-Revision-Date: 2022-10-07 14:02+0300\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: uk\n"
 "Language-Team: uk <LL@li.org>\n"
@@ -21,22 +21,21 @@ msgstr ""
 
 #: app/commands/default.py:8
 msgid "start bot"
-msgstr "почати використання"
+msgstr "почати роботу"
 
 #: app/commands/default.py:9
-#, fuzzy
 msgid "change language"
-msgstr "Оберіть мову:"
+msgstr "змінити мову"
 
 #: app/handlers/users/lang.py:11
 msgid "Select language:"
 msgstr "Оберіть мову:"
 
-#: app/handlers/users/lang.py:18
+#: app/handlers/users/lang.py:19
 msgid "Language changed"
 msgstr "Мову змінено"
 
-#: app/handlers/users/start.py:8
+#: app/handlers/users/start.py:9
 msgid "Hello <b>{}</b>"
 msgstr "Привіт <b>{}</b>"
 

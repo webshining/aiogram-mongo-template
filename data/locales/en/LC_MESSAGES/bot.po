@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2022-10-07 13:42+0300\n"
-"PO-Revision-Date: 2022-10-07 13:29+0300\n"
+"POT-Creation-Date: 2022-10-07 14:02+0300\n"
+"PO-Revision-Date: 2022-10-07 14:02+0300\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en\n"
 "Language-Team: en <LL@li.org>\n"
@@ -30,11 +30,11 @@ msgstr ""
 msgid "Select language:"
 msgstr ""
 
-#: app/handlers/users/lang.py:18
+#: app/handlers/users/lang.py:19
 msgid "Language changed"
 msgstr ""
 
-#: app/handlers/users/start.py:8
+#: app/handlers/users/start.py:9
 msgid "Hello <b>{}</b>"
 msgstr ""
 
