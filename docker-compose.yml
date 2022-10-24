@@ -29,3 +29,4 @@ services:
 volumes:
   logs:
   mongo_db:
+    external: true
