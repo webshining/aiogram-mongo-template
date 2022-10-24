@@ -1,5 +1,5 @@
-from aiogram import Bot, Dispatcher, types
 from pymongo import MongoClient
+from aiogram import Bot, Dispatcher, types
 
 from data.config import RD_DB, RD_HOST, RD_PASS, RD_PORT, TELEGRAM_BOT_TOKEN, MONGODB_URL
 

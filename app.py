@@ -1,22 +1,19 @@
-from zoneinfo import available_timezones
+from threading import Thread
 from aiogram import executor, types
 
-from loader import dp, bot, i18n
-from utils import logger
+from loader import bot, i18n
 
 
 async def on_startup(dispatcher):
     from app.commands import set_default_commands
-    await set_default_commands()
-    logger.info('Bot started!')
-
+    # await set_default_commands()
+    
 
 async def on_shutdown(dispatcher):
     from database.services import get_users
     await bot.delete_my_commands()
     [await bot.delete_my_commands(language_code=lang) for lang in i18n.available_locales]
     [await bot.delete_my_commands(scope=types.BotCommandScopeChat(user.id)) for user in get_users()]
-    logger.error('Bot shutting down!')
 
 
 if __name__ == '__main__':
