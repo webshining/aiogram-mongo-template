@@ -1,9 +1,9 @@
 from aiogram.types import Message, CallbackQuery, InlineQuery
 from aiogram.dispatcher.middlewares import BaseMiddleware
-from database import get_or_create_user
 
+from database.services import get_or_create_user
 
-class UserMiddleware(BaseMiddleware):
+class UserMiddleware(BaseMiddleware):    
     @staticmethod
     async def on_process_message(message: Message, data: dict):
         from_user = message.from_user
@@ -12,9 +12,9 @@ class UserMiddleware(BaseMiddleware):
 
     @staticmethod
     async def on_process_callback_query(callback_query: CallbackQuery, data: dict[str]):
-        user = callback_query.from_user
+        from_user = callback_query.from_user
 
-        data['user'] = get_or_create_user(user.id, user.full_name, user.username, user.language_code)
+        data['user'] = get_or_create_user(from_user.id, from_user.full_name, from_user.username, from_user.language_code)
         
 
     @staticmethod
