@@ -1,0 +1,20 @@
+version: "3.9"
+
+services:
+  redis:
+    image: redis
+    volumes: 
+      - ./redis.conf:/usr/local/etc/redis/redis.conf
+    ports:
+      - "6379:6379"
+  mongo:
+    image: mongo
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_db:/data/db
+
+volumes:
+  logs:
+  mongo_db:
+    external: true
