@@ -1,10 +1,10 @@
 [tool.poetry]
-name = "aiogram-template"
+name = "aiogram-bot"
 version = "0.1.0"
 description = ""
 authors = ["WebShining <webshinings@gmail.com>"]
 readme = "README.md"
-packages = [{include = "aiogram_template"}]
+packages = [{include = "aiogram_mongo_template"}]
 
 [tool.poetry.dependencies]
 python = "^3.10"
@@ -14,7 +14,7 @@ redis = "^4.3.4"
 motor = "^3.1.1"
 pydantic = "^1.10.2"
 tornado = "^6.2"
-pybabel = "^0.0.0.dev0"
+babel = "^2.10.3"
 
 
 [build-system]
