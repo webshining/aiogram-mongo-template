@@ -219,6 +219,14 @@ python-versions = ">=3.6"
 pyparsing = ">=2.0.2,<3.0.5 || >3.0.5"
 
 [[package]]
+name = "pybabel"
+version = "0.0.0.dev0"
+description = "The compiler for next generation Python."
+category = "main"
+optional = false
+python-versions = "*"
+
+[[package]]
 name = "pydantic"
 version = "1.10.2"
 description = "Data validation and settings management using python type hints"
@@ -330,7 +338,7 @@ multidict = ">=4.0"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.10"
-content-hash = "c7be92051a5e4fb991a2c607c373c6e4ffa191e0dea26ecd383af3fae0ea9bbc"
+content-hash = "1ec329dc8ba78539bdbba4bae4ae7c5215be6101ea6ab0eb5437a9a26e579c8a"
 
 [metadata.files]
 aiofiles = [
@@ -599,6 +607,10 @@ multidict = [
 packaging = [
     {file = "packaging-21.3-py3-none-any.whl", hash = "sha256:ef103e05f519cdc783ae24ea4e2e0f508a9c99b2d4969652eed6a2e1ea5bd522"},
     {file = "packaging-21.3.tar.gz", hash = "sha256:dd47c42927d89ab911e606518907cc2d3a1f38bbd026385970643f9c5b8ecfeb"},
+]
+pybabel = [
+    {file = "pybabel-0.0.0.dev0-py3-none-any.whl", hash = "sha256:deaa10e9b6c841a865f3698ec23fd77276bfc44efb3c602b4213e314ac712bf3"},
+    {file = "pybabel-0.0.0.dev0.tar.gz", hash = "sha256:166c7e42cc72c7decfefe5ae11b66fb2d59de95f459f47e2a2bc9075f91d3eaa"},
 ]
 pydantic = [
     {file = "pydantic-1.10.2-cp310-cp310-macosx_10_9_x86_64.whl", hash = "sha256:bb6ad4489af1bac6955d38ebcb95079a836af31e4c4f74aba1ca05bb9f6027bd"},
