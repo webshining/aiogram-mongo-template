@@ -1,20 +1,19 @@
 [tool.poetry]
-name = "aiogram-bot"
+name = "aiorgam-template"
 version = "0.1.0"
 description = ""
 authors = ["WebShining <webshinings@gmail.com>"]
 readme = "README.md"
-packages = [{include = "aiogram_mongo_template"}]
+packages = [{include = "aiorgam_template"}]
 
 [tool.poetry.dependencies]
 python = "^3.10"
-environs = "^9.5.0"
 aiogram = "3.0.0b5"
+environs = "^9.5.0"
 redis = "^4.3.4"
 motor = "^3.1.1"
-pydantic = "^1.10.2"
-tornado = "^6.2"
 babel = "^2.10.3"
+tornado = "^6.2"
 
 
 [build-system]
