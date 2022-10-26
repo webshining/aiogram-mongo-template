@@ -15,7 +15,7 @@ async def on_shutdown():
 
 
 if __name__ == '__main__':
-    import app.handlers
+    import app.middlewares, app.handlers
     dp.startup.register(on_startup)
     dp.shutdown.register(on_shutdown)
     dp.run_polling(bot)
