@@ -9,6 +9,7 @@
 - Motor
 - MongoDB
 - Poetry
+- i18n
 - Docker and docker compose
 
 ## Navigate
