@@ -23,5 +23,6 @@ async def update_user(id: int, **kwargs):
 
 async def get_or_create_user(id: int, **kwargs):
     user = await get_user(id)
+    if user: kwargs['lang'] = user.lang
     user = await update_user(id, **kwargs) if user else await create_user(id, **kwargs)
     return user
