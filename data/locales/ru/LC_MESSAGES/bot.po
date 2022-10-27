@@ -29,7 +29,7 @@ msgstr ""
 
 #: app/handlers/users/lang.py:17
 msgid "Language changed!"
-msgstr ""
+msgstr "Язык изменён!"
 
 #: app/handlers/users/start.py:10
 msgid "Hello <b>{}</b>"
