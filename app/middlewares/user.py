@@ -14,9 +14,9 @@ class UserMiddleware(BaseMiddleware):
         if event.message:
             from_user = event.message.from_user
         if event.callback_query:
-            from_user = event.callback_query
+            from_user = event.callback_query.from_user
         if event.inline_query:
-            from_user = event.inline_query
+            from_user = event.inline_query.from_user
         user = await get_or_create_user(from_user.id, name=from_user.full_name, username=from_user.username, lang=from_user.language_code)
         data['user'] = user
         return await handler(event, data)
