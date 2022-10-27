@@ -5,5 +5,6 @@ class User(BaseModel):
     id: int
     name: str
     username: str
+    lang: str
 
 users_collection = db["users"]
