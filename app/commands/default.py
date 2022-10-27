@@ -5,6 +5,7 @@ from loader import bot, i18n, _
 def get_default_commands(lang: str = 'en'):
     commands = [
         BotCommand(command='/start', description=_('start chat', locale=lang)),
+        BotCommand(command='/lang', description=_('change language', locale=lang)),
     ]
     
     return commands
