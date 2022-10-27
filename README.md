@@ -6,7 +6,7 @@
 
 - Aiogram
 - Redis
-- Pymongo
+- Motor
 - MongoDB
 - Poetry
 - Docker and docker compose
