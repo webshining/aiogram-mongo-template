@@ -8,13 +8,13 @@ services:
       - redis
       - mongo
   redis:
-    image: redis
+    image: redis:alpine
     volumes: 
       - ./redis.conf:/usr/local/etc/redis/redis.conf
     ports:
       - "6379:6379"
   mongo:
-    image: mongo
+    image: mongo:alpine
     ports:
       - "27017:27017"
     volumes:

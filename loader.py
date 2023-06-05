@@ -1,7 +1,8 @@
-from aiogram import Bot, Dispatcher
+from aiogram import Bot
 from motor.motor_tornado import MotorClient
 
-from data.config import TELEGRAM_BOT_TOKEN, RD_DB, RD_HOST, RD_PASS, RD_PORT, MONGO_URL
+from data.config import (MONGO_URL, RD_DB, RD_HOST, RD_PASS, RD_PORT,
+                         TELEGRAM_BOT_TOKEN)
 
 bot = Bot(TELEGRAM_BOT_TOKEN, parse_mode="HTML")
 if RD_DB and RD_HOST and RD_PORT:
@@ -11,10 +12,6 @@ if RD_DB and RD_HOST and RD_PORT:
 else:
     from aiogram.fsm.storage.memory import MemoryStorage
     storage = MemoryStorage()
-dp = Dispatcher(storage=storage)
 
 client = MotorClient(MONGO_URL)
 db = client['bot']
-
-from app.middlewares.inter import i18n
-_ = i18n.gettext

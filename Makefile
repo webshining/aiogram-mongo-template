@@ -1,7 +1,7 @@
 LOCALES_PATH := ./data/locales
 
 run:
-	python app.py
+	python main.py
 docker_run:
 	docker-compose up -d
 docker_logs: 

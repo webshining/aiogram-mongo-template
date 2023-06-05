@@ -73,7 +73,7 @@ $ cp .env.ren .env
 ### Application start (local)
 
 ```bash
-$ python app.py
+$ python main.py
 # If you have make you can enter
 $ make run
 ```

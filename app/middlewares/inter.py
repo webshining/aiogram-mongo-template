@@ -1,8 +1,9 @@
 from typing import Any, Dict
-from aiogram.utils.i18n import I18n, I18nMiddleware
-from aiogram.types import Update
 
-from data.config import I18N_PATH, I18N_DOMAIN
+from aiogram.types import Update
+from aiogram.utils.i18n import I18n, I18nMiddleware
+
+from data.config import I18N_DOMAIN, I18N_PATH
 from database.services import get_user
 
 i18n = I18n(path=I18N_PATH, domain=I18N_DOMAIN)
@@ -19,3 +20,4 @@ class MyI18nMiddleware(I18nMiddleware):
         return user.lang if user else await super().get_locale(event, data)
 
 i18n_middleware = MyI18nMiddleware(i18n)
+_ = i18n.gettext

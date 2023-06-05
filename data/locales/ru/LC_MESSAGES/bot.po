@@ -21,11 +21,11 @@ msgstr ""
 
 #: app/commands/default.py:7
 msgid "start chat"
-msgstr ""
+msgstr "начать"
 
 #: app/commands/default.py:8
 msgid "change language"
-msgstr ""
+msgstr "изменить язык"
 
 #: app/handlers/users/lang.py:17
 msgid "Language changed!"
@@ -33,5 +33,5 @@ msgstr "Язык изменён!"
 
 #: app/handlers/users/start.py:10
 msgid "Hello <b>{}</b>"
-msgstr ""
+msgstr "Привет <b>{}</b>"
 
