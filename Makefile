@@ -1,7 +1,7 @@
 LOCALES_PATH := ./data/locales
 
 run:
-	python main.py
+	./bin/entrypoint.sh
 docker_run:
 	docker-compose up -d
 docker_logs: 

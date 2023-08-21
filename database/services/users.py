@@ -2,8 +2,8 @@ from ..models import User, users_collection
 
 
 async def get_users():
-    users = await users_collection.find()
-    return [User(**u) for u in users]
+    users = users_collection.find()
+    return [User(**u) async for u in users]
 
 
 async def get_user(id: int):

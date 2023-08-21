@@ -1,12 +1,10 @@
 import asyncio
 
 from aiogram import Dispatcher
-from aiogram.types import BotCommandScopeDefault
 
 import app.commands
 import app.handlers
 import app.middlewares
-from app.middlewares.inter import i18n
 from loader import bot, storage
 
 
@@ -15,9 +13,6 @@ async def on_startup() -> None:
     print("Bot started!")
     
 async def on_shutdown() -> None:
-    await bot.delete_my_commands(scope=BotCommandScopeDefault())
-    for lang in i18n.available_locales:
-        await bot.delete_my_commands(scope=BotCommandScopeDefault(), language_code=lang)
     print("Bot stoped!")
 
 async def main() -> None:
