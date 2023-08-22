@@ -1,2 +1,3 @@
 from .users import dp
-from . import admins
+
+__all__ = ['dp']

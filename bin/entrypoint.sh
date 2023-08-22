@@ -1,3 +1,3 @@
 #!/bin/sh
 
-python app.py
+python main.py

@@ -1,6 +1,6 @@
-from aiogram.types import BotCommand, BotCommandScopeDefault, BotCommandScopeChat
+from aiogram.types import BotCommand, BotCommandScopeDefault
 
-from loader import bot, _, i18n
+from loader import _, bot, i18n
 
 
 def get_default_commands(lang: str = 'en') -> list[BotCommand]:

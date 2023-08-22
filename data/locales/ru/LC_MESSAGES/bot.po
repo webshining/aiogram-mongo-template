@@ -1,14 +1,14 @@
 # Russian translations for PROJECT.
-# Copyright (C) 2022 ORGANIZATION
+# Copyright (C) 2023 ORGANIZATION
 # This file is distributed under the same license as the PROJECT project.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2022.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2022-10-24 20:03+0300\n"
-"PO-Revision-Date: 2022-10-24 20:04+0300\n"
+"POT-Creation-Date: 2023-08-21 23:56+0000\n"
+"PO-Revision-Date: 2023-08-21 23:13+0000\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: ru\n"
 "Language-Team: ru <LL@li.org>\n"
@@ -18,4 +18,24 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.9.1\n"
+
+#: app/commands/default.py:8
+msgid "start bot"
+msgstr "начать"
+
+#: app/commands/default.py:9
+msgid "change language"
+msgstr "изменить язык"
+
+#: app/handlers/users/lang.py:11
+msgid "Select language:"
+msgstr "Выберите язык:"
+
+#: app/handlers/users/lang.py:19
+msgid "Language changed!"
+msgstr "Язык изменен!"
+
+#: app/handlers/users/start.py:9
+msgid "Hello <b>{}</b>"
+msgstr "Привет <b>{}</b>"
 

@@ -1,13 +1,13 @@
-from pydantic import BaseModel, Field
+from pydantic import BaseModel
 
 from loader import db
 
 
 class User(BaseModel):
-    id: int = Field(default_factory=int, alias='_id')
+    id: int
     name: str
     username: str
-    language: str
+    lang: str
 
 
 users_collection = db['users']

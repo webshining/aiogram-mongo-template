@@ -8,7 +8,6 @@
 - Redis
 - Pymongo
 - MongoDB
-- Poetry
 - Docker and docker compose
 
 ## Navigate
