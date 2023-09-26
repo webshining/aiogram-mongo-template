@@ -3,18 +3,20 @@ version: "3.9"
 services:
   app:
     build: .
-    restart: always
+    restart: on-failure
     depends_on:
       - redis
       - mongo
   redis:
     image: redis:alpine
-    volumes: 
+    restart: unless-stopped
+    volumes:
       - ./redis.conf:/usr/local/etc/redis/redis.conf
     ports:
       - "6379:6379"
   mongo:
     image: mongo
+    restart: unless-stopped
     ports:
       - "27017:27017"
     volumes:

@@ -1,7 +1,10 @@
+# App
 aiogram @ https://github.com/aiogram/aiogram/archive/refs/heads/dev-3.x.zip
 Babel==2.12.1
 environs==9.5.0
+
+# Database & storage
 motor==3.2.0
+tornado==6.3.3
 pydantic==2.2.1
 redis==5.0.0
-tornado==6.3.3
