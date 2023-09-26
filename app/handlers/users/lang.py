@@ -1,12 +1,10 @@
-from aiogram import Router
 from aiogram.filters import Command
 from aiogram.types import CallbackQuery, Message
 
 from app.keyboards import get_lang_markup
+from app.routers import user_router as router
 from database.services.users import update_user
 from loader import _
-
-router = Router()
 
 
 @router.message(Command('lang'))

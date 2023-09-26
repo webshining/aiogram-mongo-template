@@ -18,4 +18,5 @@ class MyI18nMiddleware(I18nMiddleware):
         user = await get_user(from_user.id)
         return user.lang if user else await super().get_locale(event, data)
 
+
 i18n_middleware = MyI18nMiddleware(i18n)

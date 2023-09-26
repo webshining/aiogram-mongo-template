@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2023-08-21 22:52+0000\n"
-"PO-Revision-Date: 2023-08-21 22:52+0000\n"
+"POT-Creation-Date: 2023-09-26 03:17+0300\n"
+"PO-Revision-Date: 2023-09-26 01:25+0300\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: uk\n"
 "Language-Team: uk <LL@li.org>\n"
@@ -19,23 +19,35 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.12.1\n"
 
+#: app/commands/admins.py:10
+msgid "get users list [admin]"
+msgstr ""
+
 #: app/commands/default.py:8
 msgid "start chat"
-msgstr "почати"
+msgstr ""
 
 #: app/commands/default.py:9
 msgid "change language"
-msgstr "змінити мову"
+msgstr ""
 
-#: app/handlers/users/lang.py:14
+#: app/filters/status.py:20
+msgid "Not enough rights🚫"
+msgstr ""
+
+#: app/handlers/admins/users.py:19
+msgid "Users is empty🫡"
+msgstr ""
+
+#: app/handlers/users/lang.py:12
 msgid "Select language:"
-msgstr "Оберіть мову:"
+msgstr ""
 
-#: app/handlers/users/lang.py:20
+#: app/handlers/users/lang.py:18
 msgid "Language changed!"
-msgstr "Мову змінено!"
+msgstr ""
 
-#: app/handlers/users/start.py:12
+#: app/handlers/users/start.py:10
 msgid "Hello <b>{}</b>"
-msgstr "Привіт <b>{}</b>"
+msgstr ""
 

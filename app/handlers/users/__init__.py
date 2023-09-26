@@ -1,7 +1,6 @@
-from .lang import router as lang_router
-from .start import router as start_router
+from .lang import router
+from .start import router
 
 __all__ = [
-    'lang_router',
-    'start_router'
+    'router'
 ]
