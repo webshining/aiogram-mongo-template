@@ -14,9 +14,10 @@ MONGO_URL = env.str('MONGO_URL', None)
 RD_DB = env.int('RD_DB', None)
 RD_HOST = env.str('RD_HOST', None)
 RD_PORT = env.int('RD_PORT', None)
-RD_PASS = env.str('RD_PASS', None)
 
-RATE_LIMIT = env.float('RATE_LIMIT', 0.5)
+RD_URI = env.str('RD_URI', default=None)
+if RD_DB and RD_HOST and RD_PORT:
+    DB_URI = f'redis://{RD_HOST}:{RD_PORT}/{RD_DB}'
 
 I18N_PATH = f'{DIR}/data/locales'
 I18N_DOMAIN = env.str('I18N_DOMAIN', 'bot')

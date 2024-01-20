@@ -28,15 +28,12 @@
 
 ## Getting started
 
----
-
 ### Init project
 
 ```bash
 $ git clone -b aiogram3 https://github.com/webshining/aiogram-mongo-template project_name
 $ cd project_name
 $ pip install -r requirements.txt
-$ poetry install # If you use poetry. Don't forget to select an interpreter
 ```
 
 ### Configure environment variables
@@ -51,17 +48,21 @@ $ cp .env.ren .env
 
 `TELEGRAM_BOT_TOKEN` - your bot token (required)
 
+`I18N_DOMAIN` - locales file name
+
 ### Redis config
 
 > If you are not using redis, by default used MemoryStorage
 
-`RD_DB` = redis database (number)
+`RD_DB` - your redis database (number)
 
-`RD_HOST` = redis host
+`RD_HOST` - your redis host
 
-`RD_PORT` = redis port
+`RD_PORT` - your redis port
 
-`RD_PASS` = redis password (not required)
+> You can specify RD_URI instead of RD_DB, RD_HOST and RD_PORT
+
+`RD_URI` - connection url to your redis server
 
 ### Database config
 
@@ -79,8 +80,6 @@ $ make run
 
 ## Docker
 
----
-
 ### Application start (docker)
 
 > Run only one service:<br> > `$ docker-compose up -d service-name`
@@ -88,7 +87,7 @@ $ make run
 ```bash
 $ docker-compose up -d
 # If you have make you can enter
-$ make docker_run
+$ make rebuild
 ```
 
 ### View app logs
@@ -96,7 +95,7 @@ $ make docker_run
 ```bash
 $ docker-compose logs -f app
 # If you have make you can enter
-$ make docker_logs
+$ make logs
 ```
 
 ### Rebuild app
@@ -104,13 +103,5 @@ $ make docker_logs
 ```bash
 $ docker-compose up -d --build --no-deps --force-recreate
 # If you have make you can enter
-$ make docker_rebuild
-```
-
-### Manage mongodb
-
-```bash
-$ docker-compose exec mongo mongosh
-# If you have make you can enter
-$ make mongosh
+$ make rebuild
 ```

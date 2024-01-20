@@ -2,15 +2,15 @@ from aiogram import Bot, Dispatcher
 from aiogram.utils.i18n import I18n
 from motor.motor_tornado import MotorClient
 
-from data.config import (I18N_DOMAIN, I18N_PATH, MONGO_URL, RD_DB, RD_HOST,
-                         RD_PASS, RD_PORT, TELEGRAM_BOT_TOKEN)
+from data.config import (I18N_DOMAIN, I18N_PATH, MONGO_URL, RD_URI,
+                         TELEGRAM_BOT_TOKEN)
 
 bot = Bot(TELEGRAM_BOT_TOKEN, parse_mode="HTML")
-if RD_DB and RD_HOST and RD_PORT:
+if RD_URI:
     from aiogram.fsm.storage.redis import RedisStorage
     from redis.asyncio.client import Redis
 
-    storage = RedisStorage(Redis(db=RD_DB, host=RD_HOST, port=RD_PORT, password=RD_PASS))
+    storage = RedisStorage(Redis.from_url(RD_URI))
 else:
     from aiogram.fsm.storage.memory import MemoryStorage
 
