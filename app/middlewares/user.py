@@ -3,7 +3,7 @@ from typing import Callable, Dict, Any, Awaitable
 from aiogram import BaseMiddleware
 from aiogram.types import Update
 
-from database.services import get_or_create_user
+from database.models import User
 
 
 class UserMiddleware(BaseMiddleware):
@@ -19,7 +19,8 @@ class UserMiddleware(BaseMiddleware):
             from_user = event.callback_query.from_user
         if event.inline_query:
             from_user = event.inline_query.from_user
-        user = await get_or_create_user(from_user.id, name=from_user.full_name, username=from_user.username,
+        user = await User.get_or_create(from_user.id, name=from_user.full_name, username=from_user.username,
                                         lang=from_user.language_code)
-        data['user'] = user
-        return await handler(event, data)
+        if user.status != "banned":
+            data['user'] = user
+            return await handler(event, data)

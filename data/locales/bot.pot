@@ -1,21 +1,21 @@
 # Translations template for PROJECT.
-# Copyright (C) 2023 ORGANIZATION
+# Copyright (C) 2024 ORGANIZATION
 # This file is distributed under the same license as the PROJECT project.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2024.
 #
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2023-09-26 03:17+0300\n"
+"POT-Creation-Date: 2024-01-23 05:29+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.12.1\n"
+"Generated-By: Babel 2.14.0\n"
 
 #: app/commands/admins.py:10
 msgid "get users list [admin]"
@@ -29,12 +29,8 @@ msgstr ""
 msgid "change language"
 msgstr ""
 
-#: app/filters/status.py:20
+#: app/filters/status.py:16
 msgid "Not enough rights🚫"
-msgstr ""
-
-#: app/handlers/admins/users.py:19
-msgid "Users is empty🫡"
 msgstr ""
 
 #: app/handlers/users/lang.py:12

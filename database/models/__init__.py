@@ -1,1 +1,1 @@
-from .user import User, users_collection
+from .user import User
