@@ -26,7 +26,7 @@ RD_PORT = env.int('RD_PORT', None)
 
 RD_URI = env.str('RD_URI', default=None)
 if RD_DB and RD_HOST and RD_PORT:
-    DB_URI = f'redis://{RD_HOST}:{RD_PORT}/{RD_DB}'
+    RD_URI = f'redis://{RD_HOST}:{RD_PORT}/{RD_DB}'
 
 I18N_PATH = f'{DIR}/data/locales'
 I18N_DOMAIN = env.str('I18N_DOMAIN', 'bot')

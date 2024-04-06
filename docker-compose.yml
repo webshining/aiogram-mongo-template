@@ -1,5 +1,3 @@
-version: "3.9"
-
 x-env: &env
   MONGO_HOST: ${MONGO_HOST:-mongo}
   MONGO_PORT: ${MONGO_PORT:-27017}
@@ -24,18 +22,25 @@ services:
       <<: *env
     entrypoint:
       - ./bin/entrypoint.sh
+    volumes:
+      - ./logs:/app/logs
   redis:
     image: redis:alpine
-    restart: unless-stopped
+    command: redis-server --appendonly yes
+    environment:
+      - REDIS_REPLICATION_MODE=master
+    volumes:
+      - redis:/data
   mongo:
     image: mongo
     restart: always
-    volumes:
-      - mongo_db:/data/db
     ports:
       - "27017:27017"
     environment:
       <<: *env
+    volumes:
+      - mongo_db:/data/db
 
 volumes:
   mongo_db:
+  redis: 

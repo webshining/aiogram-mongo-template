@@ -5,9 +5,9 @@ I18N_DOMAIN := $(or $(I18N_DOMAIN),bot)
 run:
 	./bin/entrypoint.sh
 logs:
-	docker-compose logs -f app
+	docker compose logs -f app
 rebuild:
-	docker-compose up -d --build --no-deps --force-recreate
+	docker compose up -d --build --no-deps --force-recreate
 alembic_create:
 	alembic revision --autogenerate -m "Added tables"
 alembic_upgrade:
