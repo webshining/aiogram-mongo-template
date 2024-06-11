@@ -2,14 +2,14 @@ import csv
 import io
 
 from aiogram.filters import Command
-from aiogram.types import Message, BufferedInputFile
+from aiogram.types import BufferedInputFile, Message
 
-from app.filters import AdminFilter
+from app.filters import StatusFilter
 from app.routers import admin_router as router
 from database.models import User
 
 
-@router.message(Command('users'), AdminFilter())
+@router.message(Command('users'), StatusFilter(True))
 async def _users(message: Message):
     file = await _get_users_data()
     await message.answer_document(BufferedInputFile(file, 'users.csv'))

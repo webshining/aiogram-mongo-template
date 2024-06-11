@@ -1,11 +1,12 @@
 from aiogram.types import BotCommand, BotCommandScopeChat
 
 from loader import _, bot, i18n
+
 from .default import get_default_commands
 
 
 def get_admins_commands(lang: str = 'en'):
-    commands = get_default_commands()
+    commands = get_default_commands(lang)
     commands.extend([
         BotCommand(command='/users', description=_('get users list [admin]', locale=lang))
     ])

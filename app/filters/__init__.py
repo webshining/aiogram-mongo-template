@@ -1,1 +1,1 @@
-from .status import AdminFilter
+from .status import StatusFilter
