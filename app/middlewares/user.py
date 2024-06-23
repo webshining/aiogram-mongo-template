@@ -8,10 +8,10 @@ from database.models import User
 
 class UserMiddleware(BaseMiddleware):
     async def __call__(
-            self,
-            handler: Callable[[Update, Dict[str, Any]], Awaitable[Any]],
-            event: Update,
-            data: Dict[str, Any],
+        self,
+        handler: Callable[[Update, Dict[str, Any]], Awaitable[Any]],
+        event: Update,
+        data: Dict[str, Any],
     ) -> Any:
         from_user = None
         if event.message:
@@ -21,9 +21,15 @@ class UserMiddleware(BaseMiddleware):
         if event.inline_query:
             from_user = event.inline_query.from_user
         if from_user:
-            user = await User.get_or_create(from_user.id, name=from_user.full_name, username=from_user.username,
-                                            lang=from_user.language_code)
+            user = await User.get_or_create(
+                from_user.id,
+                name=from_user.full_name,
+                username=from_user.username,
+                lang=from_user.language_code,
+            )
             if user.status != "banned":
-                data['user'] = user
+                data["user"] = user
                 return await handler(event, data)
+
+            return
         return await handler(event, data)

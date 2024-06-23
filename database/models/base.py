@@ -13,7 +13,7 @@ class ObjectId(BsonObjectId):
     @classmethod
     def validate(cls, v):
         if not isinstance(v, BsonObjectId):
-            raise TypeError('ObjectId required')
+            raise TypeError("ObjectId required")
         return str(v)
 
 
@@ -27,7 +27,7 @@ class Base(BaseModel):
 
     @classmethod
     async def get(cls, id: int):
-        obj = await cls._collection.find_one({'_id': id})
+        obj = await cls._collection.find_one({"_id": id})
         return cls(**obj) if obj else None
 
     @classmethod
@@ -37,12 +37,12 @@ class Base(BaseModel):
 
     @classmethod
     async def update(cls, id: int, **kwargs):
-        await cls._collection.find_one_and_update({'_id': id}, {'$set': kwargs})
+        await cls._collection.find_one_and_update({"_id": id}, {"$set": kwargs})
         return await cls.get(id)
 
     @classmethod
     async def create(cls, **kwargs):
-        if '_id' not in kwargs:
+        if "_id" not in kwargs:
             kwargs["_id"] = await cls.count() + 1
         obj = cls(**kwargs)
         obj = await cls._collection.insert_one(obj.model_dump(by_alias=True))
@@ -50,7 +50,7 @@ class Base(BaseModel):
 
     @classmethod
     async def delete(cls, id: int):
-        await cls._collection.find_one_and_delete({'_id': id})
+        await cls._collection.find_one_and_delete({"_id": id})
         return True
 
     @classmethod

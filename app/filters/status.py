@@ -1,18 +1,13 @@
-
 from aiogram.filters import Filter
-from aiogram.types import CallbackQuery, Message
 
 from loader import _
 
 
 class StatusFilter(Filter):
-    def __init__(self, super: bool = False):
-        self.super = super
+    def __init__(self, status: list[str] = []):
+        self.status = status
 
     async def __call__(self, update: any, **data) -> bool:
-        user = data['user']
-        _is = user.is_admin(self.super)
-        if not _is:
-            if isinstance(update, Message) or isinstance(update, CallbackQuery):
-                await update.answer(_("Not enough rights🚫"))
+        user = data["user"]
+        _is = user.status in self.status
         return _is

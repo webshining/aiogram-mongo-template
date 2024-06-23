@@ -9,10 +9,10 @@ from app.routers import admin_router as router
 from database.models import User
 
 
-@router.message(Command('users'), StatusFilter(True))
+@router.message(Command("users"), StatusFilter(["super_admin"]))
 async def _users(message: Message):
     file = await _get_users_data()
-    await message.answer_document(BufferedInputFile(file, 'users.csv'))
+    await message.answer_document(BufferedInputFile(file, "users.csv"))
 
 
 async def _get_users_data():

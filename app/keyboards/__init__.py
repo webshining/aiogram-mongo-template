@@ -1,1 +1,1 @@
-from .lang import get_lang_markup
+from .lang import LangCallback, get_lang_markup

@@ -29,14 +29,21 @@ class User(Base):
     def statuses_to_edit(self, status: str) -> list[str]:
         self_status = getattr(self._status, self.status).value
         status = getattr(self._status, status).value
-        return [] if status >= self_status else [i.name for i in self._status if i.value < self_status]
+        return (
+            []
+            if status >= self_status
+            else [i.name for i in self._status if i.value < self_status]
+        )
 
     @classmethod
     async def get_or_create(cls, id: int, name: str, username: str | None, lang: str):
         user = await cls.get(id)
-        user = await cls.update(user.id, name=name, username=username) if user else \
-            await cls.create(_id=id, name=name, username=username, lang=lang)
+        user = (
+            await cls.update(user.id, name=name, username=username)
+            if user
+            else await cls.create(_id=id, name=name, username=username, lang=lang)
+        )
         return user
 
 
-User.set_collection('users')
+User.set_collection("users")
