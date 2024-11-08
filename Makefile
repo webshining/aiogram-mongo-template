@@ -1,13 +1,13 @@
 LOCALES_PATH := ./data/locales
 
 run: 
-	./bin/entrypoint.sh
+	python main.py
 compose: 
 	docker-compose up -d
 logs: 
 	docker-compose logs -f app
 rebuild: 
-	docker-compose up -d --no-deps --force-recreate --build app
+	docker-compose up -d --no-deps --force-recreate --build
 mongosh: 
 	docker-compose exec mongo mongosh
 pybabel_extract: 

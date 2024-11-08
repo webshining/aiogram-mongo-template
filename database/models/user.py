@@ -1,13 +1,23 @@
-from pydantic import BaseModel
+from pydantic import Field
 
-from loader import db
+from .base import Base
 
 
-class User(BaseModel):
-    id: int
+class User(Base):
+    id: int = Field(default_factory=int, alias="_id")
     name: str
-    username: str
+    username: str | None = Field(default=None)
     lang: str
 
+    @classmethod
+    async def get_or_create(cls, id: int, name: str, username: str | None, lang: str):
+        user = await cls.get(id)
+        user = (
+            await cls.update(user.id, name=name, username=username)
+            if user
+            else await cls.create(_id=id, name=name, username=username, lang=lang)
+        )
+        return user
 
-users_collection = db['users']
+
+User.set_collection("users")

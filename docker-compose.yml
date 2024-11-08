@@ -1,32 +1,40 @@
-version: "3.9"
-
 services:
   app:
     build: .
-    restart: always
-    entrypoint: ./bin/entrypoint.sh
+    restart: on-failure
     depends_on:
       - redis
       - mongo
     environment:
-      MONGODB_URL: mongodb://mongo:27017
-      RD_DB: 5
-      RD_HOST: redis
-      RD_PORT: 6379
+      TELEGRAM_BOT_TOKEN: ${TELEGRAM_BOT_TOKEN}
+      RD_DB: ${RD_DB:-5}
+      RD_HOST: ${RD_HOST:-redis}
+      RD_PORT: ${RD_PORT:-6379}
+      RD_USER: ${RD_USER:-admin}
+      RD_PASS: ${RD_PASS:-admin}
+      MONGO_HOST: ${MONGO_HOST:-mongo}
+      MONGO_PORT: ${MONGO_PORT:-27017}
+      MONGO_USER: ${MONGO_USER:-admin}
+      MONGO_PASS: ${MONGO_PASS:-admin}
+      MONGO_NAME: ${MONGO_NAME:-bot}
+    entrypoint:
+      - ./bin/entrypoint.sh
   redis:
-    image: redis
-    volumes: 
-      - ./redis.conf:/usr/local/etc/redis/redis.conf
+    image: redis/redis-stack
+    environment:
+      REDIS_ARGS: "--requirepass ${RD_PASS:-admin} --user ${RD_USER:-admin} on >${RD_PASS:-admin} ~* allcommands --user default off nopass nocommands"
     ports:
       - "6379:6379"
+    volumes:
+      - redis:/data
   mongo:
     image: mongo
-    ports:
-      - "27017:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: ${MONGO_USER:-admin}
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_PASS:-admin}
     volumes:
       - mongo_db:/data/db
 
 volumes:
-  logs:
   mongo_db:
-    external: true
+  redis:
