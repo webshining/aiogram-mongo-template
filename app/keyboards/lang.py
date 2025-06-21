@@ -1,19 +1,22 @@
 from aiogram.filters.callback_data import CallbackData
-from aiogram.utils.keyboard import InlineKeyboardBuilder
 
 from loader import i18n
 
-
-class LangCallback(CallbackData, prefix="lang"):
-    lang: str
+from .base import BaseInlineKeyboard
 
 
-def get_lang_markup():
-    builder = InlineKeyboardBuilder()
+class LangKeyboard(BaseInlineKeyboard):
+    def keyboard(self):
+        builder = self.builder()
 
-    [
-        builder.button(text=lang.upper(), callback_data=LangCallback(lang=lang))
-        for lang in i18n.available_locales
-    ]
+        for lang in i18n.available_locales:
+            builder.button(text=lang.upper(), callback_data=self._get_data(lang=lang))
+        builder.adjust(3)
 
-    return builder.as_markup()
+        return builder.as_markup()
+
+    class Callback(CallbackData, prefix="lang"):
+        lang: str
+
+
+LangKeyboard = LangKeyboard()

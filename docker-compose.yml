@@ -1,46 +1,49 @@
 x-env: &env
-  MONGO_HOST: ${MONGO_HOST:-mongo}
-  MONGO_PORT: ${MONGO_PORT:-27017}
-  MONGO_USER: ${MONGO_USER:-admin}
-  MONGO_PASS: ${MONGO_PASS:-admin}
-  MONGO_NAME: ${MONGO_NAME:-bot}
-  MONGO_INITDB_ROOT_USERNAME: ${MONGO_USER:-admin}
-  MONGO_INITDB_ROOT_PASSWORD: ${MONGO_PASS:-admin}
+    MONGO_HOST: ${MONGO_HOST:-mongo}
+    MONGO_PORT: ${MONGO_PORT:-27017}
+    MONGO_USER: ${MONGO_USER:-admin}
+    MONGO_PASS: ${MONGO_PASS:-admin}
+    MONGO_NAME: ${MONGO_NAME:-bot}
+    MONGO_INITDB_ROOT_USERNAME: ${MONGO_USER:-admin}
+    MONGO_INITDB_ROOT_PASSWORD: ${MONGO_PASS:-admin}
 
 services:
-  app:
-    build: .
-    restart: on-failure
-    depends_on:
-      - redis
-      - mongo
-    environment:
-      TELEGRAM_BOT_TOKEN: ${TELEGRAM_BOT_TOKEN}
-      RD_DB: ${RD_DB:-5}
-      RD_HOST: ${RD_HOST:-redis}
-      RD_PORT: ${RD_PORT:-6379}
-      <<: *env
-    entrypoint:
-      - ./bin/entrypoint.sh
-    volumes:
-      - ./logs:/app/logs
-  redis:
-    image: redis:alpine
-    command: redis-server --appendonly yes
-    environment:
-      - REDIS_REPLICATION_MODE=master
-    volumes:
-      - redis:/data
-  mongo:
-    image: mongo
-    restart: always
-    ports:
-      - "27017:27017"
-    environment:
-      <<: *env
-    volumes:
-      - mongo_db:/data/db
+    app:
+        build: .
+        restart: on-failure
+        depends_on:
+            - redis
+            - mongo
+        environment:
+            TELEGRAM_BOT_TOKEN: ${TELEGRAM_BOT_TOKEN}
+            RD_DB: ${RD_DB:-5}
+            RD_HOST: ${RD_HOST:-redis}
+            RD_PORT: ${RD_PORT:-6379}
+            <<: *env
+        entrypoint:
+            - ./bin/entrypoint.sh
+        volumes:
+            - ./logs:/app/logs
+    redis:
+        image: redis:alpine
+        restart: unless-stopped
+        command: redis-server --appendonly yes
+        ports:
+            - "6379:6379"
+        environment:
+            - REDIS_REPLICATION_MODE=master
+        volumes:
+            - redis:/data
+    mongo:
+        image: mongo
+        restart: always
+        ports:
+            - "27017:27017"
+        environment:
+            <<: *env
+        volumes:
+            - mongo_db:/data/db
 
 volumes:
-  mongo_db:
-  redis: 
+    mongo_db:
+    redis:

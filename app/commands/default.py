@@ -16,7 +16,5 @@ async def set_default_commands():
     await bot.set_my_commands(get_default_commands(), scope=BotCommandScopeDefault())
     for lang in i18n.available_locales:
         await bot.set_my_commands(
-            get_default_commands(lang),
-            scope=BotCommandScopeDefault(),
-            language_code=lang,
+            get_default_commands(lang), scope=BotCommandScopeDefault(), language_code=lang
         )

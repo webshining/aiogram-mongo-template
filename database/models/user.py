@@ -2,7 +2,7 @@ from enum import Enum
 
 from pydantic import Field
 
-from .base import Base
+from database.base import Base
 
 
 class Status(Enum):
@@ -29,11 +29,7 @@ class User(Base):
     def statuses_to_edit(self, status: str) -> list[str]:
         self_status = getattr(self._status, self.status).value
         status = getattr(self._status, status).value
-        return (
-            []
-            if status >= self_status
-            else [i.name for i in self._status if i.value < self_status]
-        )
+        return [] if status >= self_status else [i.name for i in self._status if i.value < self_status]
 
     @classmethod
     async def get_or_create(cls, id: int, name: str, username: str | None, lang: str):

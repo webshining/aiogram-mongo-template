@@ -4,27 +4,27 @@
 
 ## Technologies used:
 
-- Aiogram
-- Redis
-- Motor
-- MongoDB
-- i18n
-- Docker and docker compose
+-   Aiogram
+-   Redis
+-   Motor
+-   MongoDB
+-   i18n
+-   Docker and docker compose
 
 ## Navigate
 
-- [Getting started](#getting-started)
-  - [Init project](#init-project)
-  - [Configure environment variables](#configure-environment-variables)
-    - [Bot config](#bot-config)
-    - [Redis config](#redis-config)
-    - [Database config](#database-config)
-  - [Application start (local)](#application-start-local)
-- [Docker](#docker)
-  - [Application start (docker)](#application-start-docker)
-  - [View app logs](#view-app-logs)
-  - [Rebuild app](#rebuild-app)
-  - [Manage mongodb](#manage-mongodb)
+-   [Getting started](#getting-started)
+    -   [Init project](#init-project)
+    -   [Configure environment variables](#configure-environment-variables)
+        -   [Bot config](#bot-config)
+        -   [Redis config](#redis-config)
+        -   [Database config](#database-config)
+    -   [Application start (local)](#application-start-local)
+-   [Docker](#docker)
+    -   [Application start (docker)](#application-start-docker)
+    -   [View app logs](#view-app-logs)
+    -   [Rebuild app](#rebuild-app)
+    -   [Manage mongodb](#manage-mongodb)
 
 ## Getting started
 
@@ -54,21 +54,21 @@ $ cp .env.ren .env
 
 > If you are not using redis, by default used MemoryStorage
 
-`RD_DB` - your redis database (number)
-
-`RD_HOST` - your redis host
-
-`RD_PORT` - your redis port
-
-> You can specify RD_URI instead of RD_DB, RD_HOST and RD_PORT
-
 `RD_URI` - connection url to your redis server
 
 ### Database config
 
 > MongoDB URL format<br> > `mongodb://[username:password@]host1[:port1][,...hostN[:portN]][/[defaultauthdb][?options]]`
 
-`MONGODB_URL` - connection url to your mongodb server
+Specify one of the following options to configure MongoDB connection:
+
+1. `MONGO_HOST` — MongoDB server address (e.g., localhost)
+2. `MONGO_PORT` — MongoDB port (default: 27017)
+3. `MONGO_USER` — username for authentication
+4. `MONGO_PASS` — password for authentication
+5. `MONGO_NAME` — database name
+
+Or use a ready-to-use connection string in the `MONGO_URL` variable.
 
 ### Application start (local)
 

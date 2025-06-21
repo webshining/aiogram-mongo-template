@@ -1,7 +1,7 @@
 from aiogram.filters import Command
 from aiogram.types import Message
 
-from app.routers import user_router as router
+from app.handlers.routers import user_router as router
 from loader import _
 
 

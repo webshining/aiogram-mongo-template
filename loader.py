@@ -1,23 +1,13 @@
 from aiogram import Bot, Dispatcher
-from aiogram.utils.i18n import I18n
-from motor.motor_tornado import MotorClient
-from aiogram.enums import ParseMode
 from aiogram.client.bot import DefaultBotProperties
+from aiogram.enums import ParseMode
+from aiogram.utils.i18n import I18n
 
-from data.config import (
-    I18N_DOMAIN,
-    I18N_PATH,
-    MONGO_NAME,
-    MONGO_URL,
-    RD_URI,
-    TELEGRAM_BOT_TOKEN,
-)
+from data.config import I18N_DOMAIN, I18N_PATH, RD_URI, TELEGRAM_BOT_TOKEN
 
 bot = Bot(
     TELEGRAM_BOT_TOKEN,
-    default=DefaultBotProperties(
-        parse_mode=ParseMode.HTML, link_preview_is_disabled=True
-    ),
+    default=DefaultBotProperties(parse_mode=ParseMode.HTML, link_preview_is_disabled=True),
 )
 if RD_URI:
     from aiogram.fsm.storage.redis import RedisStorage
@@ -30,8 +20,6 @@ else:
     storage = MemoryStorage()
 
 dp = Dispatcher(storage=storage)
-client = MotorClient(MONGO_URL)
-db = client[MONGO_NAME]
 
 i18n = I18n(path=I18N_PATH, domain=I18N_DOMAIN)
 _ = i18n.gettext

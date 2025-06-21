@@ -1,8 +1,11 @@
 from bson.objectid import ObjectId as BsonObjectId
-from motor.motor_tornado import MotorCollection
+from motor.motor_tornado import MotorClient, MotorCollection
 from pydantic import BaseModel
 
-from loader import db
+from data.config import MONGO_NAME, MONGO_URL
+
+client = MotorClient(MONGO_URL)
+db = client[MONGO_NAME]
 
 
 class ObjectId(BsonObjectId):
