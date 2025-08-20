@@ -8,6 +8,6 @@ async def status_middleware(event: TelegramEventObserver):
     @event.middleware()
     async def process(handler, event: Message | CallbackQuery | InlineQuery, data):
         user: User = data["user"]
-        if user.status != "admin":
+        if not user.is_admin():
             return
         return await handler(event, data)

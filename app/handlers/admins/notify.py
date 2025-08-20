@@ -4,13 +4,14 @@ from aiogram import F
 from aiogram.filters import Command
 from aiogram.fsm.context import FSMContext
 from aiogram.types import Message, CallbackQuery
+from pymongo.asynchronous.client_session import AsyncClientSession
 
+from app.handlers.routers import admin_router as router
 from app.keyboards import ApplyKeyboard
 from app.states import NotifyState
 from database.models import User
 from loader import _
 from utils import logger
-from app.handlers.routers import admin_router as router
 
 
 @router.message(Command("notify"))
@@ -27,8 +28,8 @@ async def _notify_to_message(message: Message, state: FSMContext):
 
 
 @router.callback_query(ApplyKeyboard.filter(F.data == "notify"))
-async def _notify_to(call: CallbackQuery):
-    for u in await User.get_all():
+async def _notify_to(call: CallbackQuery, session: AsyncClientSession):
+    async for u in User.find(session=session):
         try:
             await call.message.copy_to(chat_id=u.id, reply_markup=None)
         except Exception as e:

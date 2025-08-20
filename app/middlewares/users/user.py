@@ -11,6 +11,15 @@ async def user_middleware(event: TelegramEventObserver):
         await handler(event, data)
 
     async def process_user(from_user, data):
-        data["user"] = await User.get_or_create(
-            from_user.id, name=from_user.full_name, username=from_user.username, lang=from_user.language_code
-        )
+        session = data['session']
+
+        user = await User.get(from_user.id, session)
+        if user:
+            user.name = from_user.full_name
+            user.username = from_user.username
+        else:
+            user = User(id=from_user.id, name=from_user.full_name, username=from_user.username,
+                        lang=from_user.language_code)
+        await user.save(session)
+
+        data['user'] = user

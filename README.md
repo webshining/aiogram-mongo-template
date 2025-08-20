@@ -4,27 +4,27 @@
 
 ## Technologies used:
 
--   Aiogram
--   Redis
--   Motor
--   MongoDB
--   i18n
--   Docker and docker compose
+- Aiogram
+- Redis
+- Beanie
+- MongoDB
+- i18n
+- Docker and docker compose
 
 ## Navigate
 
--   [Getting started](#getting-started)
-    -   [Init project](#init-project)
-    -   [Configure environment variables](#configure-environment-variables)
-        -   [Bot config](#bot-config)
-        -   [Redis config](#redis-config)
-        -   [Database config](#database-config)
-    -   [Application start (local)](#application-start-local)
--   [Docker](#docker)
-    -   [Application start (docker)](#application-start-docker)
-    -   [View app logs](#view-app-logs)
-    -   [Rebuild app](#rebuild-app)
-    -   [Manage mongodb](#manage-mongodb)
+- [Getting started](#getting-started)
+    - [Init project](#init-project)
+    - [Configure environment variables](#configure-environment-variables)
+        - [Bot config](#bot-config)
+        - [Redis config](#redis-config)
+        - [Database config](#database-config)
+    - [Application start (local)](#application-start-local)
+- [Docker](#docker)
+    - [Application start (docker)](#application-start-docker)
+    - [View app logs](#view-app-logs)
+    - [Rebuild app](#rebuild-app)
+    - [Manage mongodb](#manage-mongodb)
 
 ## Getting started
 
